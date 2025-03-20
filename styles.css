@@ -1,4 +1,10 @@
-.bigImage {
+body{
+    width:100vw;
+    height:100vh;
+    margin:0;
+}
+
+#backgroundImage {
     background-image: url("./src/door.jpg");
     background-size: cover;
     background-position: center;
@@ -7,6 +13,8 @@
     position: absolute;
     z-index: -5;
     top: 0;
+
+    transition: transform 0.5s ease-in-out;
 }
 
 #doorwayLink {
@@ -22,4 +30,8 @@
 #hitoIntro {
     opacity: 0;
     z-index: 2;
+
+    text-wrap: wrap;
+    font-size: 1em;
+    transition: opacity 0.2s ease-in-out, font-size 3s ease-in-out;
 }
