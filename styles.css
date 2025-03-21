@@ -4,6 +4,12 @@ body{
     margin:0;
 }
 
+footer{
+    position:absolute;
+    bottom:0;
+    left:5vw;
+}
+
 #backgroundImage {
     background-image: url("./src/door.jpg");
     background-size: cover;
