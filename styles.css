@@ -1,25 +1,33 @@
-.bigImage {
-    background-image: url("./src/door.jpg");
-    background-size: cover;
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    width: 35vw;
+    height: 35vw;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    /* Center the circle in the viewport */
+}
+
+#waves {
+    background-image: url(./src/wave\ dither.mp4)
+}
+
+#redCircle {
+    background-color: #39304A;
+
+}
+
+#glitter {
+    background-image: url(./src/glitter2.jpg);
     background-position: center;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    z-index: -5;
-    top: 0;
+    background-size: cover;
+    opacity: 40%
 }
 
-#doorwayLink {
-    position: absolute;
-    opacity: 0;
-    bottom: 38vh;
-    right: 33vw;
-    width: 40px;
-    height: 40px;
-    z-index: 10;
-}
-
-#hitoIntro {
-    opacity: 0;
-    z-index: 2;
+#sand {
+    background-image: url(./src/sand.jpg);
+    background-position: center;
+    background-size: cover;
+    opacity: 40%
 }
