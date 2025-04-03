@@ -3,6 +3,8 @@ let greenCircle = document.querySelector("#greenCircle");
 let glitter = document.querySelector("#glitter");
 let waves = document.querySelector("#waves");
 let circleContainer = document.querySelector("#circleContainer");
+let circles = document.querySelectorAll(".circle");
+let circlesarray = Array.from(circles);
 
 let targetX = 0;
 let targetY = 0;
@@ -14,6 +16,8 @@ const centerX = window.innerWidth / 2;
 const centerY = window.innerHeight / 2;
 const maxRadius = 20; // max distance from center
 
+let timer;
+let timeLeft = 3; // 15 seconds
 
 
 circleContainer.addEventListener("mousedown", (e) => {
@@ -21,14 +25,32 @@ circleContainer.addEventListener("mousedown", (e) => {
     purpleCircle.style.opacity = "0.4";
     greenCircle.style.opacity = "0.4";
     waves.style.opacity = "0.4";
-})
+
+    clearTimeout(timer); // Clear any existing timer
+    timeLeft = 3; // Reset timer value
+
+    timer = setTimeout(() => {
+        console.log("Time is up!");
+
+        circles.forEach((circle) => {
+            circle.style.width = "100vw";
+            circle.style.height = "100vw";
+            circle.style.opacity = "0";
+        });
+    }, 3000); // Trigger after 3s exactly
+});
+
 
 circleContainer.addEventListener("mouseup", (e) => {
     glitter.style.opacity = "0";
     purpleCircle.style.opacity = "0";
     greenCircle.style.opacity = "0";
     waves.style.opacity = "0";
+
+
+    clearTimeout(timer); // Clear any existing timer
 })
+
 
 document.addEventListener("mousemove", (e) => {
     let x = e.clientX;

@@ -5,6 +5,7 @@
 
 body {
     background-color: #110D18;
+    overflow: hidden;
 }
 
 #overlay {
@@ -21,7 +22,6 @@ video {
     object-fit: cover;
 
     opacity: 0;
-    transition: opacity 2s ease-in-out;
 }
 
 .circle {
@@ -32,6 +32,7 @@ video {
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, -50%);
+    transition: opacity 2s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
 }
 
 #purpleCircle {
@@ -41,7 +42,6 @@ video {
         0 0 30px 15px #39304a,
         0 0 40px 20px #39304a;
     opacity: 0;
-    transition: opacity 2s ease-in-out;
 }
 
 #greenCircle {
@@ -51,7 +51,6 @@ video {
         0 0 30px 15px #98A886,
         0 0 40px 20px #98A886;
     opacity: 0;
-    transition: opacity 2s ease-in-out;
 }
 
 
@@ -61,7 +60,7 @@ video {
     background-position: center;
     background-size: cover;
     opacity: 0;
-    transition: opacity 2s ease-in-out;
+
 }
 
 #sand {
