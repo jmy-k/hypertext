@@ -1,33 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #201B29;
+}
+
+video {
+    object-fit: cover;
+
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
 .circle {
     position: absolute;
     border-radius: 50%;
-    width: 35vw;
-    height: 35vw;
+    width: 30vw;
+    height: 30vw;
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, -50%);
-    /* Center the circle in the viewport */
 }
 
-#waves {
-    background-image: url(./src/wave\ dither.mp4)
-}
-
-#redCircle {
+#purpleCircle {
     background-color: #39304A;
-
+    box-shadow: 0 0 10px 5px #39304a,
+        0 0 20px 10px #39304a,
+        0 0 30px 15px #39304a,
+        0 0 40px 20px #39304a;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
+
+#greenCircle {
+    background-color: #98A886;
+    box-shadow: 0 0 10px 5px #98A886,
+        0 0 20px 10px #98A886,
+        0 0 30px 15px #98A886,
+        0 0 40px 20px #98A886;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+
 
 #glitter {
     background-image: url(./src/glitter2.jpg);
     background-position: center;
     background-size: cover;
-    opacity: 40%
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
 
 #sand {
     background-image: url(./src/sand.jpg);
     background-position: center;
     background-size: cover;
-    opacity: 40%
+    opacity: 0.4;
+}
+
+.image.circle {
+    box-shadow: inset 0 0 10px 5px #201B29,
+        inset 0 0 20px 10px #201B29,
+        inset 0 0 30px 15px #201B29,
+        inset 0 0 40px 20px #201B29,
+        0 0 10px 5px #201B29,
+        0 0 20px 10px #201B29;
 }

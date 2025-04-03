@@ -1,30 +1,49 @@
-let redCircle = document.getElementById("redCircle");
-let glitter = document.getElementById("glitter");
+let purpleCircle = document.querySelector("#purpleCircle");
+let greenCircle = document.querySelector("#greenCircle");
+let glitter = document.querySelector("#glitter");
+let waves = document.querySelector("#waves");
+let circleContainer = document.querySelector("#circleContainer");
 
 let targetX = 0;
 let targetY = 0;
 let currentX = 0;
 let currentY = 0;
-let easeFactor = 0.1; // Adjust smoothness
+let easeFactor = 0.1;
 
 const centerX = window.innerWidth / 2;
 const centerY = window.innerHeight / 2;
-const maxRadius = 25; // Maximum distance from center
+const maxRadius = 20; // max distance from center
+
+
+
+circleContainer.addEventListener("mousedown", (e) => {
+    glitter.style.opacity = "0.4";
+    purpleCircle.style.opacity = "0.4";
+    greenCircle.style.opacity = "0.4";
+    waves.style.opacity = "0.4";
+})
+
+circleContainer.addEventListener("mouseup", (e) => {
+    glitter.style.opacity = "0";
+    purpleCircle.style.opacity = "0";
+    greenCircle.style.opacity = "0";
+    waves.style.opacity = "0";
+})
 
 document.addEventListener("mousemove", (e) => {
     let x = e.clientX;
     let y = e.clientY;
 
-    // Calculate opposite direction
+    // opposite direction for purpleCircle
     let oppositeX = centerX - (x - centerX);
     let oppositeY = centerY - (y - centerY);
 
-    // Calculate distance from center
+    // distance from center
     let dx = oppositeX - centerX;
     let dy = oppositeY - centerY;
     let distance = Math.sqrt(dx * dx + dy * dy);
 
-    // Constrain movement within maxRadius
+    // move within maxRadius for purpleCircle
     if (distance > maxRadius) {
         let angle = Math.atan2(dy, dx);
         targetX = centerX + Math.cos(angle) * maxRadius;
@@ -34,17 +53,23 @@ document.addEventListener("mousemove", (e) => {
         targetY = oppositeY;
     }
 
-    // Show glitter
-    glitter.style.display = "block";
 });
 
 // Smooth animation loop
 function animate() {
+    // Ease movement for purple circle
     currentX += (targetX - currentX) * easeFactor;
     currentY += (targetY - currentY) * easeFactor;
 
-    redCircle.style.left = `${currentX}px`;
-    redCircle.style.top = `${currentY}px`;
+    // Move green circle in the exact opposite direction of purple circle
+    let greenX = centerX - (currentX - centerX);
+    let greenY = centerY - (currentY - centerY);
+
+    purpleCircle.style.left = `${currentX}px`;
+    purpleCircle.style.top = `${currentY}px`;
+
+    greenCircle.style.left = `${greenX}px`;
+    greenCircle.style.top = `${greenY}px`;
 
     requestAnimationFrame(animate);
 }

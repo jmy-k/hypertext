@@ -10,12 +10,15 @@
 </head>
 
 <body>
-    <div id="waves" class="circle"></div>
-    <div id="redCircle" class="circle"></div>
-    <div id="glitter" class="circle"></div>
-    <div id="sand" class="circle"></div>
-
-    <div class="bigImage"> </div>
+    <div id="circleContainer">
+        <div id="greenCircle" class="circle"></div>
+        <div id="purpleCircle" class="circle"></div>
+        <video autoplay muted loop id="waves" class="image circle">
+            <source src="./src/waveDither.mp4" type="video/mp4">
+        </video>
+        <div id="glitter" class="image circle"></div>
+        <div id="sand" class="image circle"></div>
+    </div>
 
     <footer>
         <p>&copy; hypertext</p>
