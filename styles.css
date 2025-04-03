@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 body {
@@ -22,6 +23,22 @@ video {
     object-fit: cover;
 
     opacity: 0;
+}
+
+.response {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    font-size: 2rem;
+    text-align: center;
+    text-wrap: balance;
+    width: 30%;
+    pointer-events: none;
+    color: #98A886;
+
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 .circle {

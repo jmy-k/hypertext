@@ -1,3 +1,4 @@
+let body = document.querySelector("body");
 let purpleCircle = document.querySelector("#purpleCircle");
 let greenCircle = document.querySelector("#greenCircle");
 let glitter = document.querySelector("#glitter");
@@ -5,6 +6,8 @@ let waves = document.querySelector("#waves");
 let circleContainer = document.querySelector("#circleContainer");
 let circles = document.querySelectorAll(".circle");
 let circlesarray = Array.from(circles);
+
+let response = document.querySelector(".response");
 
 let targetX = 0;
 let targetY = 0;
@@ -19,6 +22,9 @@ const maxRadius = 20; // max distance from center
 let timer;
 let timeLeft = 3; // 15 seconds
 
+let responses = ["how dreadful the knowledge of the truth can be, when there’s no help in truth", "weep not, everything must have its day", "if you find I've lied, from this day on call the prophet blind", "in matters where I have no cognizance, i hold my tongue", "have no desire to suffer twice, in reality and then in retrospect", "time, which sees all things, has found you out", "without your knowledge you’ve become the enemy of your own kindred"]
+
+
 
 circleContainer.addEventListener("mousedown", (e) => {
     glitter.style.opacity = "0.4";
@@ -26,19 +32,16 @@ circleContainer.addEventListener("mousedown", (e) => {
     greenCircle.style.opacity = "0.4";
     waves.style.opacity = "0.4";
 
-    clearTimeout(timer); // Clear any existing timer
-    timeLeft = 3; // Reset timer value
+    clearTimeout(timer); // clear timer
+    timeLeft = 3; // reset timer value
 
     timer = setTimeout(() => {
         console.log("Time is up!");
-
-        circles.forEach((circle) => {
-            circle.style.width = "100vw";
-            circle.style.height = "100vw";
-            circle.style.opacity = "0";
-        });
-    }, 3000); // Trigger after 3s exactly
+        response.textContent = getOracularResponse();
+        response.style.opacity = "1"
+    }, 3000); // 3s
 });
+
 
 
 circleContainer.addEventListener("mouseup", (e) => {
@@ -48,7 +51,7 @@ circleContainer.addEventListener("mouseup", (e) => {
     waves.style.opacity = "0";
 
 
-    clearTimeout(timer); // Clear any existing timer
+    clearTimeout(timer); // clear timer
 })
 
 
@@ -77,13 +80,24 @@ document.addEventListener("mousemove", (e) => {
 
 });
 
-// Smooth animation loop
+function getOracularResponse() {
+    // shuffle array using
+    for (let i = responses.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [responses[i], responses[j]] = [responses[j], responses[i]];
+    }
+
+    // 
+    return responses[Math.floor(Math.random() * responses.length)];
+}
+
+// animation loop
 function animate() {
-    // Ease movement for purple circle
+    // ease movement for purple circle
     currentX += (targetX - currentX) * easeFactor;
     currentY += (targetY - currentY) * easeFactor;
 
-    // Move green circle in the exact opposite direction of purple circle
+    // green circle in the exact opposite direction of purple circle
     let greenX = centerX - (currentX - centerX);
     let greenY = centerY - (currentY - centerY);
 
