@@ -4,7 +4,17 @@
 }
 
 body {
-    background-color: #201B29;
+    background-color: #110D18;
+}
+
+#overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("./src/noise.jpg");
+    background-position: center;
+    background-size: cover;
+    opacity: 0.2;
 }
 
 video {
