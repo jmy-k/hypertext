@@ -21,7 +21,6 @@ body {
 
 video {
     object-fit: cover;
-
     opacity: 0;
 }
 
@@ -36,7 +35,6 @@ video {
     width: 30%;
     pointer-events: none;
     color: #98A886;
-
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
@@ -70,14 +68,11 @@ video {
     opacity: 0;
 }
 
-
-
 #glitter {
     background-image: url(./src/glitter2.jpg);
     background-position: center;
     background-size: cover;
     opacity: 0;
-
 }
 
 #sand {
@@ -94,4 +89,73 @@ video {
         inset 0 0 40px 20px #201B29,
         0 0 10px 5px #201B29,
         0 0 20px 10px #201B29;
+}
+
+/* Scroll styling */
+#scrollContainer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.scroll {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    background-image: url('./src/parchment.png');
+    background-size: 100% 100%;
+    padding: 40px 30px;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                opacity 1.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    filter: sepia(0.5) drop-shadow(0 0 15px rgba(0, 0, 0, 0.7));
+}
+
+.scroll::before,
+.scroll::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    background-image: url('./src/scroll-edge.png');
+    background-size: cover;
+    top: 0;
+}
+
+.scroll::before {
+    left: -25px;
+    transform: scaleX(-1);
+}
+
+.scroll::after {
+    right: -25px;
+}
+
+.scroll p {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #3a2d24;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    margin: 0;
+    padding: 10px;
+}
+
+.scroll.active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.scroll.fade-out {
+    opacity: 0;
+    transform: scale(0.8) rotate(5deg);
+    transition: transform 1.5s ease-out, opacity 1.5s ease-out;
 }
